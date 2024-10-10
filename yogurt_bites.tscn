@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bee1ib456qsfy"]
+
+[ext_resource type="Script" path="res://yogurt_bites.gd" id="1_ni3ql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kxqk"]
+radius = 29.0689
+
+[node name="YogurtBites" type="CharacterBody2D"]
+scale = Vector2(0.48594, 0.48594)
+script = ExtResource("1_ni3ql")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -19.0
+offset_top = -20.0
+offset_right = 21.0
+offset_bottom = 20.0
+color = Color(1, 0.807843, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5kxqk")
