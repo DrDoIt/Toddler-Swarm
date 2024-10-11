@@ -1,22 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8yfwnvqedih0"]
+[gd_scene load_steps=10 format=3 uid="uid://b8yfwnvqedih0"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_gqsw0"]
+[ext_resource type="Texture2D" uid="uid://hi5t371ucxhy" path="res://Art/Toddlers/Characters/Free Cow Sprites.png" id="2_engoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b20w4"]
 size = Vector2(40, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o2pl"]
+atlas = ExtResource("2_engoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7sgd"]
+atlas = ExtResource("2_engoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsw7y"]
+atlas = ExtResource("2_engoq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb2ti"]
+atlas = ExtResource("2_engoq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4egy"]
+atlas = ExtResource("2_engoq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml7bd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o2pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7sgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsw7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb2ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4egy")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
 [node name="Toddler" type="RigidBody2D" groups=["Toddlers"]]
-gravity_scale = 0.0
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_gqsw0")
 metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -21.0
-offset_top = -19.0
-offset_right = 19.0
-offset_bottom = 21.0
-color = Color(1, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_b20w4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ml7bd")
+animation = &"run"

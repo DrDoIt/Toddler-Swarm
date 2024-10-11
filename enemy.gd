@@ -9,4 +9,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if linear_velocity != Vector2(0,0):
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
+		
+	if linear_velocity >= Vector2(0,0):
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.flip_h = false
+	elif linear_velocity <= Vector2(0,0):
+		$AnimatedSprite2D.flip_h = true
+		#$AnimatedSprite2D.flip_h = true
+		

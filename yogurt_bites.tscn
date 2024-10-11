@@ -19,3 +19,9 @@ color = Color(1, 0.807843, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5kxqk")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.768
+one_shot = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

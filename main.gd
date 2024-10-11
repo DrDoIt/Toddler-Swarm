@@ -16,16 +16,10 @@ func _process(delta: float) -> void:
 			var toddler = child
 			var velocity = toddler.position.direction_to($Player.position) * 100
 			toddler.linear_velocity = velocity
-			
-			
-
-
-
-
 
 func _on_player_dropped() -> void:
 	var instance = yogurt_scene.instantiate()
 	instance.dir = $Player.rotation
-	instance.spawnPos = $Player.global_position
+	instance.spawnPos = $Player/Marker2D.global_position
 	instance.spawnRot = $Player.rotation
 	add_child.call_deferred(instance)

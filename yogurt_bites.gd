@@ -5,11 +5,21 @@ extends CharacterBody2D
 var dir : float
 var spawnPos: Vector2
 var spawnRot : float
+var moving = true
 
 func _ready():
 	global_position = spawnPos
-	global_rotation = spawnRot  
+	global_rotation = spawnRot 
+	$MoveTimer.start() 
 	
 func _physics_process(delta: float) -> void:
-	velocity = Vector2(0,-speed).rotated(dir)
+	if moving:
+		velocity = Vector2(-speed,0).rotated(dir)
 	move_and_slide()
+	
+	
+
+
+func _on_move_timer_timeout() -> void:
+	velocity = Vector2(0,0)
+	moving = false
