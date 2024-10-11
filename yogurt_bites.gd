@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal enticed()
 @export var speed = 100
 
 var dir : float
@@ -16,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	if moving:
 		velocity = Vector2(-speed,0).rotated(dir)
 	move_and_slide()
+	
 	
 	
 

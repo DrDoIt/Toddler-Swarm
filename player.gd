@@ -8,7 +8,7 @@ var dropable = true
 var direction : float
 
 func _ready():
-	pass
+	$AnimatedSprite2D.play()
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
