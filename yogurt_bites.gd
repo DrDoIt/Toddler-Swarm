@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-signal enticed()
 @export var speed = 100
 
 var dir : float
@@ -17,11 +16,12 @@ func _physics_process(delta: float) -> void:
 	if moving:
 		velocity = Vector2(-speed,0).rotated(dir)
 	move_and_slide()
-	
-	
-	
-
 
 func _on_move_timer_timeout() -> void:
 	velocity = Vector2(0,0)
 	moving = false
+
+
+func _on_eating_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Toddler"):
+		queue_free()

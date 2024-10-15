@@ -36,11 +36,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cvyc"]
-radius = 275.065
+radius = 30.0
 
 [node name="Toddler" type="RigidBody2D" groups=["Toddlers"]]
 collision_layer = 4
 collision_mask = 15
+gravity_scale = 0.0
 script = ExtResource("1_gqsw0")
 metadata/_edit_group_ = true
 
@@ -61,4 +62,8 @@ frame_progress = 0.756495
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_2cvyc")
 
+[node name="Eating" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Aggro" to="." method="_on_aggro_body_entered"]
+[connection signal="timeout" from="Eating" to="." method="_on_eating_timeout"]
