@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 signal dropped()
+signal hit
 
 @export var speed = 300.0
 const JUMP_VELOCITY = -400.0
+static var attempt = 1
 var dropable = true
 var direction : float
 
@@ -41,9 +43,14 @@ func _process(delta):
 	
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		print("I collided with ", collision.get_collider().name)
-		
-
+		var collider = collision.get_collider()
+		if collider.is_in_group("Toddlers"):
+			hit.emit()
+			print("respawn")
 
 func _on_throw_timer_timeout() -> void:
 	dropable = true
+	
+func respawn(pos):
+	position = pos
+	attempt += 1

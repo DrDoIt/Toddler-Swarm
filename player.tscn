@@ -77,13 +77,12 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uwgi3"]
 height = 54.0
 
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(1, 0)
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 14
 script = ExtResource("1_whcxs")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1cn6k")
@@ -99,7 +98,6 @@ shape = SubResource("CapsuleShape2D_uwgi3")
 [node name="ThrowTimer" type="Timer" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="."]
-visible = false
-position = Vector2(-35, 0)
+position = Vector2(-52, -1)
 
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]

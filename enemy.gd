@@ -2,6 +2,7 @@ extends RigidBody2D
 
 static var bite
 static var eaten = true
+var chasing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,8 +25,6 @@ func _process(delta: float) -> void:
 	if collision:
 		pass
 		#print("I collided with ", collision.get_collider().name)
-		
-	
 
 
 func _on_aggro_body_entered(body: Node2D) -> void:
@@ -39,3 +38,15 @@ func _on_aggro_body_entered(body: Node2D) -> void:
 func _on_eating_timeout() -> void:
 	bite.queue_free()
 	eaten = true
+
+
+func _on_chase_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		chasing = true
+		print(chasing)
+
+
+func _on_chase_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		chasing = false
+		print("Idling")

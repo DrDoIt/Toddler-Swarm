@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8yfwnvqedih0"]
+[gd_scene load_steps=10 format=3 uid="uid://b8yfwnvqedih0"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_gqsw0"]
 [ext_resource type="Texture2D" uid="uid://byip360esm7xe" path="res://Art/Toddlers/Characters/run.png" id="2_pjf4w"]
@@ -38,6 +38,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cvyc"]
 radius = 30.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4gdx"]
+radius = 604.212
+
 [node name="Toddler" type="RigidBody2D" groups=["Toddlers"]]
 collision_layer = 4
 collision_mask = 15
@@ -65,5 +68,12 @@ shape = SubResource("CircleShape2D_2cvyc")
 [node name="Eating" type="Timer" parent="."]
 one_shot = true
 
+[node name="Chase" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chase"]
+shape = SubResource("CircleShape2D_w4gdx")
+
 [connection signal="body_entered" from="Aggro" to="." method="_on_aggro_body_entered"]
 [connection signal="timeout" from="Eating" to="." method="_on_eating_timeout"]
+[connection signal="body_entered" from="Chase" to="." method="_on_chase_body_entered"]
+[connection signal="body_exited" from="Chase" to="." method="_on_chase_body_exited"]

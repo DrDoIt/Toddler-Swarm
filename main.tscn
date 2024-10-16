@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b7517h2vneqnp"]
+[gd_scene load_steps=18 format=4 uid="uid://b7517h2vneqnp"]
 
 [ext_resource type="PackedScene" uid="uid://o3f62i8pcavs" path="res://player.tscn" id="1_gl1dd"]
 [ext_resource type="Script" path="res://main.gd" id="1_hb4il"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://m8pnm47c5v6r" path="res://Art/Map/Tilesets/Wooden_House_Walls_Tilset.png" id="6_nkh6x"]
 [ext_resource type="Texture2D" uid="uid://cgrdnqm8y00it" path="res://Art/Map/Tilesets/Doors.png" id="7_tw0l4"]
 [ext_resource type="Texture2D" uid="uid://df3hk6sf73mvs" path="res://Art/Map/Tilesets/Grass.png" id="8_knbwd"]
+[ext_resource type="PackedScene" uid="uid://b8jn8vdq2sx3j" path="res://hud.tscn" id="10_ix8bk"]
+[ext_resource type="PackedScene" uid="uid://j7mq1bitdmds" path="res://play_area.tscn" id="11_iyeut"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvpu4"]
 texture = ExtResource("4_wiwys")
@@ -243,6 +245,11 @@ scale = Vector2(7, 7)
 tile_map_data = PackedByteArray("AAAHAAkAAwAAAAAAAAAOAP//AgACAAAAAAAOAAAAAgACAAEAAAAOAAEAAgACAAEAAAAOAAIAAgACAAEAAAAOAAMAAgACAAEAAAAOAAQAAgACAAEAAAAOAAUAAgACAAEAAAAOAAYAAgACAAEAAAAOAAcAAgACAAEAAAAOAAgAAgACAAEAAAAOAAkAAgACAAIAAAD//wkAAgAAAAIAAAD//wAAAgAAAAEAAAD//wEAAgAAAAEAAAD//wIAAgAAAAEAAAD//wMAAgAAAAEAAAD//wQAAgAAAAEAAAD//wUAAgAAAAEAAAD//wYAAgAAAAEAAAD//wcAAgAAAAEAAAD//wgAAgAAAAEAAAD/////AgAAAAAAAAAAAAkAAgABAAIAAAABAAkAAgABAAIAAAACAAkAAgABAAIAAAADAAkAAgABAAIAAAAEAAkAAgABAAIAAAAFAAkAAgABAAIAAAAGAAkAAgABAAIAAAAIAAkAAgABAAIAAAAJAAkAAgABAAIAAAAKAAkAAgABAAIAAAALAAkAAgABAAIAAAAMAAkAAgABAAIAAAANAAkAAgABAAIAAAAAAP//AgABAAAAAAABAP//AgABAAAAAAACAP//AgABAAAAAAADAP//AgABAAAAAAAEAP//AgABAAAAAAAFAP//AgABAAAAAAAGAP//AgABAAAAAAAHAP//AgABAAAAAAAIAP//AgABAAAAAAAJAP//AgABAAAAAAAKAP//AgABAAAAAAALAP//AgABAAAAAAAMAP//AgABAAAAAAANAP//AgABAAAAAAAHAAwAAAADAAEAAAAHAAsAAAADAAAAAAAHAA0AAAAIAAQAAAAIAA0AAAABAAMAAAAJAA0AAAABAAMAAAAGAA0AAAABAAMAAAAFAA0AAAABAAMAAAAEAA0AAAABAAMAAAADAA0AAAABAAMAAAAKAA0AAAABAAMAAAALAA0AAAABAAMAAAAHAA4AAAADAAEAAAAHAA8AAAADAAEAAAAIAA4ABAAEAAAAAAAGAA4ABAAHAAAAAAAIAA8ABAADAAEAAAAGAA8ABAADAAEAAAAGABAABAADAAEAAAAIABAABAADAAEAAAAIABEABAADAAEAAAAGABEABAADAAEAAAAHABAAAAADAAEAAAAJAA4ABAABAAMAAAAKAA4ABAABAAMAAAALAA4ABAABAAMAAAAFAA4ABAABAAMAAAAEAA4ABAABAAMAAAADAA4ABAABAAMAAAAGABIABAADAAEAAAAIABIABAADAAEAAAAGABMABAADAAEAAAAIABMABAADAAEAAAAIABQABAAEAAMAAAAGABQABAADAAEAAAAGABUABAADAAEAAAAGABYABAAEAAMAAAAHABYABAABAAMAAAAIABYABAABAAMAAAAJABYABAABAAMAAAAKABYABAABAAMAAAAJABQABAABAAMAAAAKABQABAABAAMAAAALABYABAABAAMAAAALABQABAABAAMAAAAMABQABAAHAAMAAAAMABMABAADAAEAAAAOABMABAADAAEAAAAOABQABAAEAAMAAAAMABIABAAEAAAAAAANABIABAABAAMAAAAOABIABAAHAAAAAAAMABYABAABAAMAAAANABYABAABAAMAAAAOABYABAABAAMAAAAPABYABAABAAMAAAAPABQABAABAAMAAAAQABQABAABAAMAAAAQABYABAABAAMAAAARABYABAAHAAAAAAARABQABAABAAMAAAASABQABAABAAMAAAATABQABAAHAAAAAAATABUABAADAAEAAAATABYABAADAAEAAAARABcABAADAAEAAAATABcABAADAAEAAAARABgABAADAAEAAAATABgABAADAAEAAAA=")
 tile_set = SubResource("TileSet_yb4as")
 
+[node name="PlayArea" parent="Background" instance=ExtResource("11_iyeut")]
+position = Vector2(681, 454)
+collision_layer = 16
+collision_mask = 15
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Background"]
 collision_layer = 2
 collision_mask = 13
@@ -261,32 +268,37 @@ polygon = PackedVector2Array(343, 1644, 699, 1641, 696, 2554, 1918, 2543, 1926, 
 polygon = PackedVector2Array(1327, 1593, 939, 1590, 911, 1624, 920, 2328, 1420, 2334, 1432, 2110, 1587, 2105, 1591, 2329, 2136, 2320, 2147, 2792, 2226, 2792, 2218, 2252, 1666, 2246, 1659, 2040, 1366, 2037, 1366, 2249, 999, 2252, 987, 1661, 1341, 1658)
 
 [node name="Player" parent="." instance=ExtResource("1_gl1dd")]
-position = Vector2(495, 303)
+position = Vector2(810, 348)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Toddler" parent="." instance=ExtResource("2_nk0x6")]
-position = Vector2(195, 181)
+position = Vector2(-774, -583)
 
 [node name="Toddler5" parent="." instance=ExtResource("2_nk0x6")]
 position = Vector2(1516, 2199)
 
 [node name="Toddler2" parent="." instance=ExtResource("2_nk0x6")]
-position = Vector2(179, 425)
+position = Vector2(-894, 802)
 
 [node name="Toddler3" parent="." instance=ExtResource("2_nk0x6")]
-position = Vector2(852, 487)
+position = Vector2(3345, 1319)
 
 [node name="Toddler4" parent="." instance=ExtResource("2_nk0x6")]
-position = Vector2(839, 149)
+position = Vector2(3115, -22)
 
-[node name="CharlieSpawn" type="Marker2D" parent="."]
-position = Vector2(1103, 345)
+[node name="Toddler6" parent="." instance=ExtResource("2_nk0x6")]
+position = Vector2(969, 541)
 
-[node name="CharlieSpawnTime" type="Timer" parent="."]
-wait_time = 0.5
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(821, 358)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("10_ix8bk")]
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="body_entered" from="Background/PlayArea" to="." method="_on_play_area_body_entered"]
 [connection signal="dropped" from="Player" to="." method="_on_player_dropped"]
-[connection signal="timeout" from="CharlieSpawnTime" to="." method="_on_charlie_spawn_time_timeout"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
