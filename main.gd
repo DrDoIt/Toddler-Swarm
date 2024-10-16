@@ -54,6 +54,7 @@ func _on_toddler_chasing() -> void:
 func _on_player_hit() -> void:
 	attempts.emit()
 	$Player.respawn($PlayerSpawn.position)
+	#$CanvasLayer/HUD/Stopwatch.reset()
 
 
 func _on_play_area_body_entered(body: Node2D) -> void:

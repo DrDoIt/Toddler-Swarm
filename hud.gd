@@ -14,11 +14,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Get window size
 	var window_size = DisplayServer.window_get_size()
+	
+	# Aesthetics
 	$ToddlerCount.position.y = 13
 	$ToddlerCount.position.x = window_size.x - 215
-	$Stopwatch.position.x = (window_size.x - $Stopwatch.size.x)/2
-	# Aesthetics
+	$Stopwatch.position.x = $Label.position.x
+	$Stopwatch.position.y = 50
 	$ColorRect.size.x = $Label.size.x + padding_x
 	$ColorRect.size.y = $Label.size.y + padding_y
 	$ColorRect.position.x = $Label.position.x - padding_x/2
