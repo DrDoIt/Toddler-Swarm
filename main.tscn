@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b7517h2vneqnp"]
+[gd_scene load_steps=19 format=4 uid="uid://b7517h2vneqnp"]
 
 [ext_resource type="PackedScene" uid="uid://o3f62i8pcavs" path="res://player.tscn" id="1_gl1dd"]
 [ext_resource type="Script" path="res://main.gd" id="1_hb4il"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://df3hk6sf73mvs" path="res://Art/Map/Tilesets/Grass.png" id="8_knbwd"]
 [ext_resource type="PackedScene" uid="uid://b8jn8vdq2sx3j" path="res://hud.tscn" id="10_ix8bk"]
 [ext_resource type="PackedScene" uid="uid://j7mq1bitdmds" path="res://play_area.tscn" id="11_iyeut"]
+[ext_resource type="AudioStream" uid="uid://1sbsx2wt7g6j" path="res://Chase.wav" id="12_xkn4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvpu4"]
 texture = ExtResource("4_wiwys")
@@ -296,6 +297,9 @@ position = Vector2(821, 358)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("10_ix8bk")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_xkn4c")
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
