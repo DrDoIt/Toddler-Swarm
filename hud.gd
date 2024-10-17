@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	var attemptCount = $"../../Player".attempt
 	var toddlerCount = main.toddlerCount
 	
-	if toddlerCount == 6:
+	if toddlerCount == 10s:
 		$ToddlerCount.hide()
 		$Stopwatch.hide()
 		$ColorRect.hide()

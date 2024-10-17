@@ -920,8 +920,20 @@ position = Vector2(3345, 1319)
 [node name="Toddler4" parent="." instance=ExtResource("2_nk0x6")]
 position = Vector2(3115, -22)
 
-[node name="Toddler6" parent="." instance=ExtResource("2_nk0x6")]
-position = Vector2(-278, 2152)
+[node name="Toddler7" parent="." instance=ExtResource("2_nk0x6")]
+position = Vector2(-1206, 2220)
+
+[node name="Toddler8" parent="." instance=ExtResource("2_nk0x6")]
+position = Vector2(3014, 2458)
+
+[node name="Toddler9" parent="." instance=ExtResource("2_nk0x6")]
+position = Vector2(1854, -665)
+
+[node name="Toddler10" parent="." instance=ExtResource("2_nk0x6")]
+position = Vector2(587, -671)
+
+[node name="Toddler12" parent="." instance=ExtResource("2_nk0x6")]
+position = Vector2(384, 1450)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(773, 427)
