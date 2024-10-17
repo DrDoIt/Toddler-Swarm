@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 		if str(time_elapsed).pad_decimals(0) == "0":
 			pass
 		else:
-			text = str(time_elapsed).pad_decimals(1)
+			text = str("Time: ",str(time_elapsed).pad_decimals(1), "s")
 
 func reset() -> void:
 	# possibly save time_elapsed somewhere else before overriding it

@@ -52,5 +52,14 @@ offset_left = 514.0
 offset_top = 13.0
 offset_right = 554.0
 offset_bottom = 36.0
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 script = ExtResource("2_nc4vj")
+
+[node name="YouWon" type="Label" parent="." groups=["HUD"]]
+offset_left = 536.0
+offset_top = 277.0
+offset_right = 576.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 75
+text = "You won!"
+uppercase = true

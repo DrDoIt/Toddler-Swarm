@@ -2,6 +2,9 @@ extends Node
 
 signal attempts
 
+@onready var tile_map_layer: TileMapLayer = $Background/TileMapLayer
+@onready var tile_map_layer_2: TileMapLayer = $Background/TileMapLayer2
+
 @export var yogurt_scene: PackedScene
 @export var enemy_scene: PackedScene
 
@@ -61,3 +64,8 @@ func _on_play_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Toddlers"):
 		body.queue_free()
 		toddlerCount += 1
+
+
+func _on_hud_won() -> void:
+	$Player.respawn($PlayerSpawn2.position)
+	print("warp")
