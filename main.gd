@@ -8,6 +8,7 @@ signal attempts
 var screen_size
 var yogurtSpotted = false
 var toddlerCount = 0
+var toddlerSpeed = 250
 
 static var toddlerTarget
 
@@ -24,7 +25,7 @@ func _process(delta: float) -> void:
 				pass
 			else:
 				toddlerTarget = toddler
-			var velocity = toddler.position.direction_to(toddlerTarget.position) * 100
+			var velocity = toddler.position.direction_to(toddlerTarget.position) * toddlerSpeed
 			toddler.linear_velocity = velocity
 
 func _on_player_dropped() -> void:
