@@ -14,8 +14,10 @@ static var toddlerTarget
 
 func _ready() -> void:
 	$Background/Warp/AnimatedSprite2D.play()
+	$Background/Warper/AnimatedSprite2D.play()
 	
 func _process(delta: float) -> void:
+	$Background/Warper/CollisionShape2D.disabled = true
 	for child in self.find_children("*"):
 		if child.is_in_group("Toddlers"):
 			var toddler = child
@@ -64,5 +66,9 @@ func _on_play_area_body_entered(body: Node2D) -> void:
 
 
 func _on_hud_won() -> void:
-	$Player.respawn($PlayerSpawn2.position)
+	$Player.warp($PlayerSpawn2.position)
 	print("warp")
+
+
+func _on_warp_body_entered(body: Node2D) -> void:
+	$Player.warp($Background/Warper.position)

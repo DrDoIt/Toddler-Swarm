@@ -54,3 +54,6 @@ func _on_throw_timer_timeout() -> void:
 func respawn(pos):
 	position = pos
 	attempt += 1
+
+func warp(pos):
+	position = pos
