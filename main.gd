@@ -13,7 +13,7 @@ var toddlerSpeed = 250
 static var toddlerTarget
 
 func _ready() -> void:
-	pass
+	$Background/Warp/AnimatedSprite2D.play()
 	
 func _process(delta: float) -> void:
 	for child in self.find_children("*"):
