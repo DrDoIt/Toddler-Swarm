@@ -2,9 +2,6 @@ extends Node
 
 signal attempts
 
-@onready var tile_map_layer: TileMapLayer = $Background/TileMapLayer
-@onready var tile_map_layer_2: TileMapLayer = $Background/TileMapLayer2
-
 @export var yogurt_scene: PackedScene
 @export var enemy_scene: PackedScene
 
@@ -16,7 +13,6 @@ static var toddlerTarget
 
 func _ready() -> void:
 	pass
-	#screen_size = 
 	
 func _process(delta: float) -> void:
 	for child in self.find_children("*"):
@@ -35,7 +31,7 @@ func _on_player_dropped() -> void:
 	var instance = yogurt_scene.instantiate()
 	instance.dir = $Player.rotation
 	instance.spawnPos = $Player/Marker2D.global_position
-	instance.spawnRot = $Player.rotation
+	instance.spawnRot = $Player.rotation +1.5708
 	add_child.call_deferred(instance)
 	
 
