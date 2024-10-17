@@ -33,13 +33,14 @@ func _process(delta: float) -> void:
 	$ColorRect2.position.y = $ToddlerCount.position.y - padding_y/2 + 2
 	# YouWon label position
 	$YouWon.position.x = window_size.x/2 - $YouWon.size.x/2
-	$YouWon.position.y = window_size.y/4 -$YouWon.size.y/2
+	$YouWon.position.y = window_size.y/4 -$YouWon.size.y/3
 	
 	# Score update
 	var attemptCount = $"../../Player".attempt
 	var toddlerCount = main.toddlerCount
+	var maxToddlerCount = 10
 	
-	if toddlerCount == 10s:
+	if toddlerCount == maxToddlerCount:
 		$ToddlerCount.hide()
 		$Stopwatch.hide()
 		$ColorRect.hide()
@@ -48,7 +49,7 @@ func _process(delta: float) -> void:
 		gameOver()
 
 	$Label.text = str("Attempt ",attemptCount)
-	$ToddlerCount.text = str("Toddlers Brought Home: ", toddlerCount,"/6")
+	$ToddlerCount.text = str("Toddlers Brought Home: ", toddlerCount,"/",maxToddlerCount)
 
 func gameOver():
 	$YouWon.show()
